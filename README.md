@@ -74,7 +74,7 @@ Ensure you have the following installed:
 1. **Clone the repository:**
    Open your terminal and run the following command to download the project:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Maxihero1/sdet-project.git
     ```
 
 2. **Navigate to the project directory:**
