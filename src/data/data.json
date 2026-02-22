@@ -1,0 +1,23 @@
+{
+    "users": {
+        "validUser": {
+            "username": "tomsmith",
+            "password": "SuperSecretPassword!"
+        },
+        "invalidUsernameUser": {
+            "username": "marlonwashere",
+            "password": "SuperSecretPassword!"
+        },
+        "invalidPasswordUser": {
+            "username": "tomsmith",
+            "password": "marlonwasalsohere"
+        }
+    },
+    "messages": {
+        "success": "You logged into a secure area!",
+        "invalidUsername": "Your username is invalid!",
+        "invalidPassword": "Your password is invalid!",
+        "logout": "You logged out of the secure area!",
+        "unauthorizedSecurePage": "You must login to view the secure area!"
+    }
+}
