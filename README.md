@@ -40,7 +40,7 @@ The framework implements the **Page Object Model (POM)** pattern by leveraging P
 ```text
 ├── src/
 │   ├── data/                # Test data
-│   │   └── users.json         # Data for testing (JSON)
+│   │   └── data.json          # Data for testing (JSON)
 │   ├── fixtures/            # Custom Playwright test extensions (Fixtures)
 │   │   └── base.ts            # Page instantiation logic & Dependency Injection
 │   └── pages/               # Page Object Model classes (Business Logic)
