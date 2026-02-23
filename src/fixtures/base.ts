@@ -13,11 +13,16 @@ type Fixtures = {
 export const test = base.extend<Fixtures>({
     LoginPage: async ({ page }, use) => {
         const Login = new LoginPage(page);
+        await Login.goToLoginPage();
         await use(Login);
         await Login.closePage();
     },
     SecurePage: async ({ page }, use) => {
+        const Login = new LoginPage(page);
         const Secure = new SecurePage(page);
+        await Login.goToLoginPage();
+        await Login.login(testData.users.validUser.username, testData.users.validUser.password);
+        await Login.expectSuccessfulLogin(testData.messages.success);
         await use(Secure);
         await Secure.closePage();
     }

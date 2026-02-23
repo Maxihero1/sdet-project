@@ -46,6 +46,15 @@ export class SecurePage {
         });
     }
 
+    // Method to verify successful logout by checking the URL and alert message
+    async expectAuthErrorMessage(message: string) {
+        await test.step('Verify auth error message', async () => {
+            await expect(this.alert_message).toBeVisible();
+            await expect(this.alert_message).toContainText(message);
+            await expect(this.page.url()).toContain('/login');
+        });
+    }
+
     // Method to close the page after tests are completed
     async closePage() {
         await test.step('Close the page', async () => {

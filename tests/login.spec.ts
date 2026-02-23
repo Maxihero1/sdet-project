@@ -2,12 +2,7 @@ import { test, testData } from '../src/fixtures/base';
 
 // This test suite covers both successful (Happy path) and unsuccessful (Unhappy path) login scenarios using data from users.json.
 
-test.beforeEach(async({ LoginPage }) => {
-    await LoginPage.goToLoginPage();
-});
-
 test.describe('Successful login tests', () => {
-
     test('Test Case 1: Login with valid credentials', async({ LoginPage }) => {
         await LoginPage.login(testData.users.validUser.username, testData.users.validUser.password);
         await LoginPage.expectSuccessfulLogin(testData.messages.success);
