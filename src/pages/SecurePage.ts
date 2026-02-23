@@ -32,6 +32,7 @@ export class SecurePage {
     // Method to perform logout action by clicking the logout button
     async logout() {
         await test.step('Click logout button', async () => {
+            await expect(this.logout_button).toBeEnabled();
             await this.logout_button.click();
         });
     }
@@ -39,8 +40,9 @@ export class SecurePage {
     // Method to verify successful logout by checking the URL and alert message
     async expectSuccessfulLogout(message: string) {
         await test.step('Verify successful logout', async () => {
-            await expect(this.page.url()).toContain('/login');
+            await expect(this.alert_message).toBeVisible();
             await expect(this.alert_message).toContainText(message);
+            await expect(this.page.url()).toContain('/login');
         });
     }
 

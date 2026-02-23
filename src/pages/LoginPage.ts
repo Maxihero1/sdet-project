@@ -36,6 +36,9 @@ export class LoginPage {
     // Method to perform login action with given username and password
     async login(username: string, password: string) {
         await test.step(`Perform login with username: ${username} and password: ${password}`, async () => {
+            await expect(this.username_input).toBeVisible();
+            await expect(this.password_input).toBeVisible();
+            await expect(this.login_button).toBeEnabled();
             await this.username_input.fill(username);
             await this.password_input.fill(password);
             await this.login_button.click();
@@ -45,16 +48,18 @@ export class LoginPage {
     // Method to verify successful login by checking the URL and alert message
     async expectSuccessfulLogin(message: string) {
         await test.step('Verify successful login', async () => {
-            await expect(this.page.url()).toContain('/secure');
+            await expect(this.alert_message).toBeVisible();
             await expect(this.alert_message).toContainText(message);
+            await expect(this.page.url()).toContain('/secure');
         });
     };
 
     // Method to verify unsuccessful login by checking the URL and alert message
     async expectLoginErrorMessage(message: string) {
         await test.step('Verify login error message', async () => {
-            await expect(this.page.url()).toContain('/login');
+            await expect(this.alert_message).toBeVisible();
             await expect(this.alert_message).toContainText(message);
+            await expect(this.page.url()).toContain('/login');
         });
     };
 
