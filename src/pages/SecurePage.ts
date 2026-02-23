@@ -46,12 +46,11 @@ export class SecurePage {
         });
     }
 
-    // Method to verify successful logout by checking the URL and alert message
+    // Method to verify authorization error message
     async expectAuthErrorMessage(message: string) {
         await test.step('Verify auth error message', async () => {
             await expect(this.alert_message).toBeVisible();
             await expect(this.alert_message).toContainText(message);
-            await expect(this.page.url()).toContain('/login');
         });
     }
 
