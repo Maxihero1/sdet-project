@@ -12,10 +12,14 @@ type Fixtures = {
 
 export const test = base.extend<Fixtures>({
     LoginPage: async ({ page }, use) => {
-        await use(new LoginPage(page));
+        const Login = new LoginPage(page);
+        await use(Login);
+        await Login.closePage();
     },
     SecurePage: async ({ page }, use) => {
-        await use(new SecurePage(page));
+        const Secure = new SecurePage(page);
+        await use(Secure);
+        await Secure.closePage();
     }
 });
 
